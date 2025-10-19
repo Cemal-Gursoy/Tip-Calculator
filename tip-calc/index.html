@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tip Calculator</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    label, input, button, div {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tip Calculator</h1>
+
+  <label for="billInput">Price</label>
+  <input id="billInput" type="number" value="0" />
+
+  <label for="tipInput">Tip</label>
+  <input id="tipInput" type="number" value="0" />
+
+  <button id="calcBtn" type="button">Calculate</button>
+
+  <label for="totalAmount">Total Price:</label>
+  <div id="totalAmount"></div>
+
+  <script>
+    let billInput = document.getElementById("billInput");
+    let tipInput = document.getElementById("tipInput");
+    let calcBtn = document.getElementById("calcBtn");
+    let totalAmount = document.getElementById("totalAmount");
+
+    calcBtn.addEventListener("click", function () {
+      let bill = parseFloat(billInput.value);
+      let tip = parseFloat(tipInput.value);
+
+      let tipAmount = (bill * tip) / 100;
+      let total = bill + tipAmount;
+
+      totalAmount.innerText = total.toFixed(2);
+
+
+    });
+  </script>
+</body>
+</html>
